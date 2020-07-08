@@ -2,10 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:meditation_app/constants.dart';
 import 'package:meditation_app/screens/VideoAbs.dart';
+import 'package:meditation_app/screens/VideoArm.dart';
+import 'package:meditation_app/screens/VideoChest.dart';
+import 'package:meditation_app/screens/VideoLeg.dart';
 import 'package:meditation_app/widgets/bottom_nav_bar.dart';
 import 'package:meditation_app/widgets/search_bar.dart';
 
 class DetailsScreen extends StatelessWidget {
+  var type;
+  var video;
+  var image;
+  DetailsScreen(var type) {
+    this.type = type;
+    if (type == "Abs") {
+      this.video = VideoAbs();
+      this.image = "assets/images/abs.jpg";
+    } else if (type == "Arm") {
+      this.video = VideoArm();
+      this.image = "assets/images/arms.png";
+    } else if (type == "Chest") {
+      this.video = VideoChest();
+      this.image = "assets/images/chest.png";
+    } else if (type == "Legs") {
+      this.video = VideoLeg();
+      this.image = "assets/images/legs.png";
+    }
+  }
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -34,7 +56,7 @@ class DetailsScreen extends StatelessWidget {
                       height: size.height * 0.05,
                     ),
                     Text(
-                      "Abs",
+                      this.type,
                       style: Theme.of(context)
                           .textTheme
                           .display1
@@ -67,7 +89,7 @@ class DetailsScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) {
-                                return VideoAbs();
+                                return this.video;
                               }),
                             );
                           },
@@ -78,7 +100,7 @@ class DetailsScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) {
-                                return VideoAbs();
+                                return this.video;
                               }),
                             );
                           },
@@ -89,7 +111,7 @@ class DetailsScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) {
-                                return VideoAbs();
+                                return this.video;
                               }),
                             );
                           },
@@ -100,7 +122,7 @@ class DetailsScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) {
-                                return VideoAbs();
+                                return this.video;
                               }),
                             );
                           },
@@ -111,7 +133,7 @@ class DetailsScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) {
-                                return VideoAbs();
+                                return this.video;
                               }),
                             );
                           },
@@ -122,7 +144,7 @@ class DetailsScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) {
-                                return VideoAbs();
+                                return this.video;
                               }),
                             );
                           },
@@ -131,7 +153,7 @@ class DetailsScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 20),
                     Text(
-                      "Abs",
+                      this.type,
                       style: Theme.of(context)
                           .textTheme
                           .title
@@ -156,7 +178,7 @@ class DetailsScreen extends StatelessWidget {
                       child: Row(
                         children: <Widget>[
                           Image.asset(
-                            "assets/images/abs.jpg",
+                            this.image,
                           ),
                           SizedBox(width: 20),
                           Expanded(

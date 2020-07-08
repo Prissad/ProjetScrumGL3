@@ -61,30 +61,51 @@ class HomeScreen extends StatelessWidget {
                       children: <Widget>[
                         CategoryCard(
                           title: "Arms",
-                          svgSrc: "assets/icons/Hamburger.svg",
-                          press: () {},
-                        ),
-                        CategoryCard(
-                          title: "Chest",
-                          svgSrc: "assets/icons/Excrecises.svg",
-                          press: () {},
-                        ),
-                        CategoryCard(
-                          title: "Abs",
-                          svgSrc: "assets/icons/Meditation.svg",
+                          svgSrc: "assets/images/arms.png",
                           press: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) {
-                                return DetailsScreen();
+                                return DetailsScreen("Arm");
+                              }),
+                            );
+                          },
+                        ),
+                        CategoryCard(
+                          title: "Chest",
+                          svgSrc: "assets/images/chest.png",
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return DetailsScreen("Chest");
+                              }),
+                            );
+                          },
+                        ),
+                        CategoryCard(
+                          title: "Abs",
+                          svgSrc: "assets/images/abs.jpg",
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return DetailsScreen("Abs");
                               }),
                             );
                           },
                         ),
                         CategoryCard(
                           title: "Legs",
-                          svgSrc: "assets/icons/yoga.svg",
-                          press: () {},
+                          svgSrc: "assets/images/legs.png",
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return DetailsScreen("Legs");
+                              }),
+                            );
+                          },
                         ),
                       ],
                     ),
